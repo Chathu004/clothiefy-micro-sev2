@@ -2,6 +2,7 @@ package org.iCET.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.iCET.dto.Product;
+import org.iCET.entity.ProductEntity;
 import org.iCET.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,5 +20,9 @@ public class ProductController {
     public String deleteProduct(@PathVariable Long id){
         service.deleteProduct(id);
         return "Deleted product successfully!";
+    }
+    @GetMapping("/get")
+    public Iterable<ProductEntity> getProduct(){
+        return service.getProduct();
     }
 }
