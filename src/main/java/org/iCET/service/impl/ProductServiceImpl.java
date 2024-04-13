@@ -7,9 +7,10 @@ import org.iCET.entity.ProductEntity;
 import org.iCET.repository.ProductRepository;
 import org.iCET.service.ProductService;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Server
+@Service
 @RequiredArgsConstructor
 
 public class ProductServiceImpl implements ProductService {
@@ -33,6 +34,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductEntity> getProduct() {
-        return null;
+        return (List<ProductEntity>) repository.findAll();
     }
 }
