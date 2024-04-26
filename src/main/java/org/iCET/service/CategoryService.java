@@ -6,7 +6,8 @@ import org.iCET.entity.CategoryEntity;
 import java.util.List;
 
 public interface CategoryService {
-    void addCategory(Category category);
+    CategoryEntity addCategory(Category category);
     List<CategoryEntity> getCategory();
+    Category getCategoryByName(String name);
     boolean deleteCategory(Long id);
 }

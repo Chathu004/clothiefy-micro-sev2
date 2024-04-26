@@ -10,7 +10,6 @@ import lombok.ToString;
 @Data
 @ToString
 public class Category {
-    private Long id;
-    private String categoryName;
-    private String description;
+    private Long categoryId;
+    private String name;
 }
