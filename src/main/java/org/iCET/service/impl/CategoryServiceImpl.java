@@ -17,15 +17,20 @@ public class CategoryServiceImpl implements CategoryService {
      final ModelMapper mapper;
 
     @Override
-    public void addCategory(Category category) {
-        CategoryEntity entity = mapper.map(category,CategoryEntity.class);
-        repository.save(entity);
-
+    public CategoryEntity addCategory(Category category) {
+        CategoryEntity entity = new CategoryEntity();
+        entity.setName(category.getName());
+        return repository.save(entity);
     }
 
     @Override
     public List<CategoryEntity> getCategory() {
         return (List<CategoryEntity>) repository.findAll();
+    }
+
+    @Override
+    public Category getCategoryByName(String name) {
+        return mapper.map(repository.getByName(name),Category.class);
     }
 
     @Override

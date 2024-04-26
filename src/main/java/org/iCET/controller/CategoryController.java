@@ -16,8 +16,9 @@ public class CategoryController {
 
     final CategoryService service;
     @PostMapping("/add")
-    public void addCategory(@RequestBody Category category){
-        service.addCategory(category);
+    public ResponseEntity<CategoryEntity> createCategory(@RequestBody Category category){
+        CategoryEntity entity = service.addCategory(category);
+        return ResponseEntity.status(HttpStatus.CREATED).body(entity);
     }
     @GetMapping("/get")
     public Iterable<CategoryEntity> getCategory(){
@@ -27,6 +28,10 @@ public class CategoryController {
     public String deleteCategory(@PathVariable Long id){
         service.deleteCategory(id);
         return "Deleted  category successfully!";
+    }
+    @GetMapping("/get/{name}")
+    public Category getCategoryByName(@PathVariable String name){
+        return service.getCategoryByName(name);
     }
 
 
