@@ -17,18 +17,18 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String productName;
+
+    private String name;
     private String description;
     private Double price;
     private Integer qty;
 
-    private Long categoryId;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "categories_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch =  FetchType.LAZY)
+    @JoinColumn(name = "category_id",nullable = false)
     @JsonIgnore
-    private CategoryEntity categoryEntity;
+    private CategoryEntity category;
+
 
 
 }

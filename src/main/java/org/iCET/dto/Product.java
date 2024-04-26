@@ -18,10 +18,12 @@ import org.iCET.entity.CategoryEntity;
 @ToString
 public class Product {
     private Long id;
-    private String productName;
+    private String name;
     private String description;
     private Double price;
     private Integer qty;
+
+    private Long categoryId;
 
 
 }
